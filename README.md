@@ -15,3 +15,9 @@ editor.generate('/your/dir/');
 ``` 
 Please remember that if there's a README file on the directory, the content will be appened to the file
 if there's not, a new README file will be generated, **but it is a .txt file, you have to convert it manually.** 
+
+# TODO
+- [ ] Add Javadoc
+- [ ] Add more useful tokens
+- [ ] Finish table
+- [ ] Finish list
