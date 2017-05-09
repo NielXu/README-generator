@@ -17,8 +17,6 @@ public class Demo {
 			  .addRow("Please remember that if there's a README file on the directory, the content will be appened to the file")
 			  .addRow(Lib.plain("if there's not, a new README file will be generated,") , Lib.bold("but it is a .txt file, you have to convert it manually"));
 			  //In this case, Lib.plain() is necessary to be called
-		
-		System.out.println(editor.generate("/Users/danielxu/Desktop/github/README-generator"));
 	}
 	
 }
