@@ -14,7 +14,7 @@ After finished editing, save it to the directory
 editor.generate('/your/dir/');
 ``` 
 ~~Please remember that if there's a README file on the directory, the content will be appened to the file
-if there's not, a new README file will be generated, **but it is a .txt file, you have to convert it manually.** ~~
+if there's not, a new README file will be generated, but it is a .txt file, you have to convert it manually. ~~
 README file will now be generated in markdown type, do not have to convert it manually.
 
 # TODO
