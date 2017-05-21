@@ -54,7 +54,14 @@ public class Editor {
 	
 	public boolean generate(String dir){
 		File file = new File(dir+"/README.md");
-		if(!file.exists()) file = new File(dir+"/README.txt");
+		if(!file.exists()){
+			try{
+				file.createNewFile();
+			}
+			catch(IOException e){
+				e.printStackTrace();
+			}
+		}
 		
 		BufferedWriter writer = null;
 		try{

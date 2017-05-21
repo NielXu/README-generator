@@ -1,7 +1,7 @@
 package generator.demo;
 
 import generator.editor.Editor;
-import generator.tokens.*;
+import generator.tokens.Lib;
 
 public class Demo {
 	
