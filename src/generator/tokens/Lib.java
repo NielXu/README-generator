@@ -1,5 +1,8 @@
 package generator.tokens;
 
+import generator.editor.List;
+import generator.editor.Table;
+
 /**
  * Lib class is an alternative way, instead of letting user to create an instance, Lib class lists all the tokens for users to choose which 
  * one they wanna use. User can either using 'new' keyword to create a new token, or using Lib.token_name() to create one. Using 
@@ -51,6 +54,14 @@ public class Lib {
 	
 	public static Token link(String text , String src){
 		return new Link(text , src);
+	}
+	
+	public static List list(){
+		return new List();
+	}
+	
+	public static Table table(){
+		return new Table();
 	}
 	
 }

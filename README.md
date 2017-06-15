@@ -1,24 +1,14 @@
-# README-generator
+# README-generator 
 A simple README generator :)
-# EXAMPLE 
-Create a new editor
-```java
-Editor editor = new Editor();
-``` 
-Add a new row on the editor
-```java
-editor.addRow(Lib.plain('Here is an example'));
-``` 
-After finished editing, save it to the directory
-```java
-editor.generate('/your/dir/');
-``` 
-~~Please remember that if there's a README file on the directory, the content will be appened to the file~~
-~~if there's not, a new README file will be generated, but it is a .txt file, you have to convert it manually.~~
-README file will now be generated in markdown type, do not have to convert it manually.
 
-# TODO
-- [ ] Add Javadoc
-- [ ] Add more useful tokens
-- [ ] Finish table
-- [ ] Finish list
+# Tokens 
+|Token|Usage|Example|
+|---|---|---|
+|Bold|Make texts bold|`Lib.bold('text');`|
+|Code|Add codes, is the same as highlight if the language is null|`Lib.code('Code' , null);`|
+|Heading|Add heading with the given size|`Lib.heading('heading' , 1);`|
+|Italic|Make texts italic|`Lib.italic('text');`|
+|Link|Add link|`Lib.link('link' , 'src');`|
+|Strike|Strike out the text|`Lib.strike('text');`|
+|Table|Create a new table|`Table t = Lib.table();`|
+|List|Create a new list|`List l = Lib.list();`|

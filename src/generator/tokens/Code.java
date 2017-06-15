@@ -5,7 +5,10 @@ public class Code implements Token{
 	private String text;
 	
 	public Code(String text , String lang){
-		this.text = "```"+lang+"\n"+text+"\n```";
+		if(lang == null)
+			this.text = "`" + text + "`";
+		else
+			this.text = "```"+lang+"\n"+text+"\n```";
 	}
 	
 	@Override
