@@ -26,7 +26,7 @@ public class Demo {
 		
 		editor.addTable(table);
 		
-		System.out.println(editor.generate("/Users/danielxu/Desktop/github/README-generator", true));
+		System.out.println(editor.generate("directory", true));
 	}
 	
 }
