@@ -12,3 +12,12 @@ A simple README generator :)
 |Strike|Strike out the text|`Lib.strike('text');`|
 |Table|Create a new table|`Table t = Lib.table();`|
 |List|Create a new list|`List l = Lib.list();`|
+
+# Why to use
+1. Do not have to rememeber the markdown types, all the keywords are in `Lib` class 
+2. Can preview the README file by calling `editor.preview()`
+3. Can generate the README file or easily append content to it by calling `editor.generate('dir' , boolean appened)`
+
+# Example
+Here is an example of the preview feature:
+![Preview example](README-example.png)

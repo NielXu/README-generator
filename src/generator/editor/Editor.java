@@ -1,10 +1,12 @@
 package generator.editor;
 
+import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import generator.tokens.Heading;
 import generator.tokens.Token;
 
 /**
@@ -17,11 +19,14 @@ public class Editor {
 	/**The content**/
 	private StringBuilder content;
 	
+	private Parser parser;
+	
 	/**
 	 * Create a new Editor, and ready to append texts
 	 */
 	public Editor(){
 		content = new StringBuilder();
+		parser = new Parser();
 	}
 	
 	/**
@@ -31,9 +36,21 @@ public class Editor {
 	 * @return The Editor instance, for next operation
 	 */
 	public Editor addRow(Token... tokens){
+		boolean ishead = false;
 		for(Token token : tokens){
+			if(token instanceof Heading){
+				ishead = true;
+			}
 			content.append(token.getText()+" ");
+			token.parse(parser);
+			parser.addTag(" ");
 			token = null;
+		}
+		if(ishead){
+			parser.addTag("<hr>\n");
+		}
+		else{
+			parser.addTag("<br>\n");
 		}
 		content.append("\n");
 		return this;
@@ -47,6 +64,7 @@ public class Editor {
 	 */
 	public Editor addRow(String text){
 		content.append(text+"\n");
+		parser.addTag(text+"<br>\n");
 		return this;
 	}
 	
@@ -68,7 +86,9 @@ public class Editor {
 	public Editor newLines(int lines){
 		for(int i=0;i<lines;i++){
 			content.append("\n");
+			parser.addTag("<br>");
 		}
+		parser.addTag("\n");
 		return this;
 	}
 	
@@ -80,11 +100,13 @@ public class Editor {
 	 */
 	public Editor addTable(Table table){
 		content.append(table.getContent());
+		parser.addTag(table.getHtmlContent());
 		return this;
 	}
 	
-	public void addList(){
-		
+	public Editor addList(List list){
+		content.append(list.getContent());
+		return this;
 	}
 	
 	/**
@@ -94,6 +116,35 @@ public class Editor {
 	 */
 	public String getContent(){
 		return content.toString();
+	}
+	
+	public void preview(){
+		String html = parser.getContent();
+		File file = new File("Preview/preview.html");
+		BufferedWriter writer = null;
+		try{
+			writer = new BufferedWriter(new FileWriter(file));
+			writer.write(html);
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+		finally{
+			if(writer != null){
+				try{
+					writer.close();
+				}
+				catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+		}
+		try{
+			Desktop.getDesktop().open(file);
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 	
 	/**

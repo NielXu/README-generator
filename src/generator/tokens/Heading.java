@@ -1,8 +1,10 @@
 package generator.tokens;
 
+import generator.editor.Parser;
+
 public class Heading implements Token{
 	
-	private String text = "";
+	private String text = "" , htmlText;
 	
 	public Heading(String text , int size){
 		//Resize if size is incorrect
@@ -15,11 +17,23 @@ public class Heading implements Token{
 		}
 		
 		this.text += " "+text;
+		
+		htmlText = "<h"+size+">"+text+"</h"+size+">";
 	}
 	
 	@Override
 	public String getText() {
 		return text;
+	}
+
+	@Override
+	public void parse(Parser p) {
+		p.addTag(htmlText);
+	}
+
+	@Override
+	public String getHtmlText() {
+		return htmlText;
 	}
 
 }

@@ -15,11 +15,15 @@ public class Table {
 	/**The content**/
 	private StringBuilder content;
 	
+	private StringBuilder sb;
+	
 	/**
 	 * Create a new table
 	 */
 	public Table(){
 		content = new StringBuilder();
+		sb = new StringBuilder();
+		sb.append("<table>\n");
 	}
 	
 	/**
@@ -30,9 +34,12 @@ public class Table {
 	 * @return The Table itself, for next operation
 	 */
 	public Table head(String[] head , int[] alignment){
+		sb.append("<tr>");
 		for(int i=0;i<head.length;i++){
 			content.append("|"+head[i]);
+			sb.append("<th>" + head[i] + "</th>\n");
 		}
+		sb.append("</tr>\n");
 		content.append("|\n");
 		
 		if(alignment == null){
@@ -59,9 +66,12 @@ public class Table {
 	}
 	
 	public Table head(Token[] tokens , int[] alignment){
+		sb.append("<tr>");
 		for(int i=0;i<tokens.length;i++){
 			content.append("|"+tokens[i].getText());
+			sb.append("<th>" + tokens[i].getHtmlText() + "</th>\n");
 		}
+		sb.append("</tr>\n");
 		content.append("|\n");
 		
 		if(alignment == null){
@@ -94,19 +104,30 @@ public class Table {
 	 * @return The Table itself, for next operation
 	 */
 	public Table insertRow(String... row){
+		sb.append("<tr>");
 		for(int i=0;i<row.length;i++){
 			content.append("|"+row[i]);
+			sb.append("<td>"+row[i]+"</td>\n");
 		}
+		sb.append("</tr>\n");
 		content.append("|\n");
 		return this;
 	}
 	
 	public Table insertRow(Token...tokens){
+		sb.append("<tr>");
 		for(int i=0;i<tokens.length;i++){
 			content.append("|"+tokens[i].getText());
+			sb.append("<td>"+tokens[i].getHtmlText()+"</td>\n");
 		}
+		sb.append("</tr>\n");
 		content.append("|\n");
 		return this;
+	}
+	
+	public String getHtmlContent(){
+		sb.append("</table>\n");
+		return sb.toString();
 	}
 	
 	/**

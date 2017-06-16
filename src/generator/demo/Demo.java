@@ -26,7 +26,8 @@ public class Demo {
 		
 		editor.addTable(table);
 		
-		System.out.println(editor.generate("directory", true));
+		//System.out.println(editor.generate("directory", true)); //Generate to the directory
+		editor.preview();
 	}
 	
 }
