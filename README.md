@@ -20,4 +20,4 @@ A simple README generator :)
 
 # Example
 Here is an example of the preview feature:
-![Preview example](README-example.png)
+![Preview example](README-example)
