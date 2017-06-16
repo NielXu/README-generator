@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+html {
+	display: table;
+	margin: 0 auto;
+}
+
+body {
+	width: 60%;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	color: #1E1E1E;
+	line-height: 25px;
+    vertical-align: middle;
+    border: 1px solid #BFBFBF;
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+table, td, th {
+	border: 1px solid #C3C3C3;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+hr {
+	border: 0.5px solid #E4E4E4;
+	margin-bottom: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #3869FF;
+}
+
+a:hover {
+	text-decoration: underline;
+}
