@@ -20,4 +20,4 @@ A simple README generator :)
 
 # Example
 Here is an example of the preview feature:
-![Preview example](README-example)
+![alt text](README-example.png "Example screenshot")
